@@ -1,4 +1,5 @@
 const express = require('express');
+const transform = require('./transform/transform');
 
 const app = express()
 const port = 3000;
@@ -9,7 +10,7 @@ app.get('/:city', (req, res) => {
 
   const percentage = Math.floor(Math.random() * (100 - 1)) + 1;
 
-  res.send(`the predicted awesomeness in ${city} is ${percentage}%`);
+  res.send(`the predicted awesomeness in ${city} is ${transform(percentage)}%`);
 });
 
 app.get('/', (req, res) => {
